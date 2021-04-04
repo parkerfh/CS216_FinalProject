@@ -1,4 +1,4 @@
-,state,county_name,state_fips,county_fips,fips
+,STATE,NAME20,STATEFP20,COUNTYFP20,GEOID20
 0,North Carolina,Alamance,37,001,37001
 1,North Carolina,Alexander,37,003,37003
 2,North Carolina,Alleghany,37,005,37005
