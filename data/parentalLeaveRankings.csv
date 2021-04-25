@@ -1,0 +1,53 @@
+State,Score,Grade
+California,125,A-
+Hawaii,90,B+
+Washington DC,85,B+
+Oregon,85,B+
+Connecticut,75,B
+New Jersey,75,B
+Washington,75,B
+Maine,65,B-
+Vermont,65,B-
+Minnesota,60,B-
+Rhode Island,60,B-
+Massachusetts,55,C+
+Louisiana,50,C+
+Wisconsin,35,C
+New Hampshire,30,C
+New York,30,C
+Tennessee,30,C
+Illinois,25,C-
+Montana,25,C-
+Ohio,25,C-
+Iowa,20,D+
+South Carolina,20,D+
+New Mexico,15,D
+Alaska,10,D-
+Arizona,10,D-
+Colorado,10,D-
+Florida,10,D-
+Indiana,10,D-
+Kentucky,10,D-
+Michigan,10,D-
+North Dakota,10,D-
+Utah,10,D-
+Federal Government,0,F
+Alabama,0,F
+Arkansas,0,F
+Delaware,0,F
+Georgia,0,F
+Idaho,0,F
+Kansas,0,F
+Maryland,0,F
+Mississippi,0,F
+Missouri,0,F
+Nebraska,0,F
+Nevada,0,F
+North Carolina,0,F
+Oklahoma,0,F
+Pennsylvania,0,F
+South Dakota,0,F
+Texas,0,F
+Virginia,0,F
+West Virginia,0,F
+Wyoming,0,F
