@@ -1,0 +1,52 @@
+year,state_name,STATEFP20,agecat,racecat,sexcat,iprcat,NUI,NIC
+2016,Alabama,01,18 to 64 years,All,Female,All,185643.0,1309971.0
+2016,Alaska,02,18 to 64 years,All,Female,All,35558.0,186317.0
+2016,Arizona,04,18 to 64 years,All,Female,All,239868.0,1788021.0
+2016,Arkansas,05,18 to 64 years,All,Female,All,89397.0,798013.0
+2016,California,06,18 to 64 years,All,Female,All,1076250.0,11117741.0
+2016,Colorado,08,18 to 64 years,All,Female,All,146871.0,1563751.0
+2016,Connecticut,09,18 to 64 years,All,Female,All,64915.0,1039786.0
+2016,Delaware,10,18 to 64 years,All,Female,All,19208.0,272022.0
+2016,District of Columbia,11,18 to 64 years,All,Female,All,8748.0,227372.0
+2016,Florida,12,18 to 64 years,All,Female,All,1017523.0,5164920.0
+2016,Georgia,13,18 to 64 years,All,Female,All,536244.0,2697685.0
+2016,Hawaii,15,18 to 64 years,All,Female,All,18474.0,403182.0
+2016,Idaho,16,18 to 64 years,All,Female,All,67841.0,417845.0
+2016,Illinois,17,18 to 64 years,All,Female,All,306396.0,3648585.0
+2016,Indiana,18,18 to 64 years,All,Female,All,189774.0,1801807.0
+2016,Iowa,19,18 to 64 years,All,Female,All,45112.0,861894.0
+2016,Kansas,20,18 to 64 years,All,Female,All,94871.0,757422.0
+2016,Kentucky,21,18 to 64 years,All,Female,All,77169.0,1264770.0
+2016,Louisiana,22,18 to 64 years,All,Female,All,189820.0,1253695.0
+2016,Maine,23,18 to 64 years,All,Female,All,40431.0,364951.0
+2016,Maryland,24,18 to 64 years,All,Female,All,131292.0,1779053.0
+2016,Massachusetts,25,18 to 64 years,All,Female,All,58802.0,2078314.0
+2016,Michigan,26,18 to 64 years,All,Female,All,187672.0,2843766.0
+2016,Minnesota,27,18 to 64 years,All,Female,All,73861.0,1583393.0
+2016,Mississippi,28,18 to 64 years,All,Female,All,146069.0,762584.0
+2016,Missouri,29,18 to 64 years,All,Female,All,213263.0,1625015.0
+2016,Montana,30,18 to 64 years,All,Female,All,31418.0,274239.0
+2016,Nebraska,31,18 to 64 years,All,Female,All,57861.0,495560.0
+2016,Nevada,32,18 to 64 years,All,Female,All,122980.0,774760.0
+2016,New Hampshire,33,18 to 64 years,All,Female,All,30940.0,379989.0
+2016,New Jersey,34,18 to 64 years,All,Female,All,265168.0,2522263.0
+2016,New Mexico,35,18 to 64 years,All,Female,All,70946.0,546147.0
+2016,New York,36,18 to 64 years,All,Female,All,431102.0,5813402.0
+2016,North Carolina,37,18 to 64 years,All,Female,All,420559.0,2717770.0
+2016,North Dakota,38,18 to 64 years,All,Female,All,15105.0,202339.0
+2016,Ohio,39,18 to 64 years,All,Female,All,222205.0,3289052.0
+2016,Oklahoma,40,18 to 64 years,All,Female,All,209503.0,950345.0
+2016,Oregon,41,18 to 64 years,All,Female,All,94433.0,1157462.0
+2016,Pennsylvania,42,18 to 64 years,All,Female,All,243289.0,3611038.0
+2016,Rhode Island,44,18 to 64 years,All,Female,All,15395.0,312465.0
+2016,South Carolina,45,18 to 64 years,All,Female,All,196300.0,1322100.0
+2016,South Dakota,46,18 to 64 years,All,Female,All,26499.0,217597.0
+2016,Tennessee,47,18 to 64 years,All,Female,All,229564.0,1822086.0
+2016,Texas,48,18 to 64 years,All,Female,All,1824354.0,6652195.0
+2016,Utah,49,18 to 64 years,All,Female,All,91797.0,793110.0
+2016,Vermont,50,18 to 64 years,All,Female,All,8469.0,180752.0
+2016,Virginia,51,18 to 64 years,All,Female,All,276213.0,2337213.0
+2016,Washington,53,18 to 64 years,All,Female,All,155719.0,2081538.0
+2016,West Virginia,54,18 to 64 years,All,Female,All,32973.0,510133.0
+2016,Wisconsin,55,18 to 64 years,All,Female,All,103674.0,1629425.0
+2016,Wyoming,56,18 to 64 years,All,Female,All,23105.0,147316.0
