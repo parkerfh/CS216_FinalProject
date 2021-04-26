@@ -1,51 +1,51 @@
-,State,Score,Grade,Abortion Overview
-0,California,135,A-,protected
-1,Hawaii,100,B+,protected
-2,Oregon,95,B+,protected
-3,Connecticut,85,B,protected
-4,New Jersey,85,B,neither
-5,Washington,85,B,protected
-6,Maine,75,B-,protected
-7,Vermont,75,B-,protected
-8,Minnesota,70,B-,neither
-9,Rhode Island,70,B-,protected
-10,Massachusetts,65,C+,neither
-11,Louisiana,60,C+,significantly restricted
-12,Wisconsin,45,C,significantly restricted
-13,New Hampshire,40,C,neither
-14,New York,40,C,protected
-15,Tennessee,40,C,neither
-16,Illinois,35,C-,protected
-17,Montana,35,C-,neither
-18,Ohio,35,C-,significantly restricted
-19,Iowa,30,D+,neither
-20,South Carolina,30,D+,neither
-21,New Mexico,25,D,significantly restricted
-22,Alaska,20,D-,neither
-23,Arizona,20,D-,significantly restricted
-24,Colorado,20,D-,neither
-25,Florida,20,D-,neither
-26,Indiana,20,D-,neither
-27,Kentucky,20,D-,significantly restricted
-28,Michigan,20,D-,significantly restricted
-29,North Dakota,20,D-,significantly restricted
-30,Utah,20,D-,neither
-31,Alabama,10,F,significantly restricted
-32,Arkansas,10,F,significantly restricted
-33,Delaware,10,F,protected
-34,Georgia,10,F,neither
-35,Idaho,10,F,significantly restricted
-36,Kansas,10,F,significantly restricted
-37,Maryland,10,F,protected
-38,Mississippi,10,F,significantly restricted
-39,Missouri,10,F,significantly restricted
-40,Nebraska,10,F,neither
-41,Nevada,10,F,protected
-42,North Carolina,10,F,neither
-43,Oklahoma,10,F,significantly restricted
-44,Pennsylvania,10,F,neither
-45,South Dakota,10,F,neither
-46,Texas,10,F,neither
-47,Virginia,10,F,neither
-48,West Virginia,10,F,significantly restricted
-49,Wyoming,10,F,neither
+State,Score,Grade,Abortion Overview,STATEFP20
+California,135,A-,protected,6
+Hawaii,100,B+,protected,15
+Oregon,95,B+,protected,41
+Connecticut,85,B,protected,9
+New Jersey,85,B,neither,34
+Washington,85,B,protected,53
+Maine,75,B-,protected,23
+Vermont,75,B-,protected,50
+Minnesota,70,B-,neither,27
+Rhode Island,70,B-,protected,44
+Massachusetts,65,C+,neither,25
+Louisiana,60,C+,significantly restricted,22
+Wisconsin,45,C,significantly restricted,55
+New Hampshire,40,C,neither,33
+New York,40,C,protected,36
+Tennessee,40,C,neither,47
+Illinois,35,C-,protected,17
+Montana,35,C-,neither,30
+Ohio,35,C-,significantly restricted,39
+Iowa,30,D+,neither,19
+South Carolina,30,D+,neither,45
+New Mexico,25,D,significantly restricted,35
+Alaska,20,D-,neither,2
+Arizona,20,D-,significantly restricted,4
+Colorado,20,D-,neither,8
+Florida,20,D-,neither,12
+Indiana,20,D-,neither,18
+Kentucky,20,D-,significantly restricted,21
+Michigan,20,D-,significantly restricted,26
+North Dakota,20,D-,significantly restricted,38
+Utah,20,D-,neither,49
+Alabama,10,F,significantly restricted,1
+Arkansas,10,F,significantly restricted,5
+Delaware,10,F,protected,10
+Georgia,10,F,neither,13
+Idaho,10,F,significantly restricted,16
+Kansas,10,F,significantly restricted,20
+Maryland,10,F,protected,24
+Mississippi,10,F,significantly restricted,28
+Missouri,10,F,significantly restricted,29
+Nebraska,10,F,neither,31
+Nevada,10,F,protected,32
+North Carolina,10,F,neither,37
+Oklahoma,10,F,significantly restricted,40
+Pennsylvania,10,F,neither,42
+South Dakota,10,F,neither,46
+Texas,10,F,neither,48
+Virginia,10,F,neither,51
+West Virginia,10,F,significantly restricted,54
+Wyoming,10,F,neither,56
