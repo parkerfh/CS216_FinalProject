@@ -4,33 +4,37 @@ library(knitr)
 library(broom)
 library(nnet)
 
-data <- read_csv("data/all_national_data.csv")
+data <- read_csv("data/all_national_data_merged.csv")
 data <- data %>%
-  mutate(abortion_status = as.factor(abortion_status))
+  mutate(Abortion = as.factor(Abortion))
 
-ellipse::pairs(as.factor(abortion_status) ~ as.factor(state) + fp_perc_need_met16 + fp_num_served16 + fp_num_u20_served16, 
-             data = data, lower.panel = NULL) # linear relationship between fp_num_served16 and fp_num_u20_served16
-ellipse::pairs(as.factor(abortion_status) ~ fp_num_centers15 + fp_total_expend15 + STATEFP20 + childcare_score + paid_leave_score, 
-               data = data, lower.panel = NULL) #linear relatnshp between fp_num_centers15 and fp_total_expend15
-ellipse::pairs(as.factor(abortion_status) ~ ad_num_waiting16 + ad_num_adopted16 + ad_num_served16 + ad_prop_adopted16 + parental_leave_score + prop_uninsured16, 
-               data = data, lower.panel = NULL) #lin relation btwn ad_num_waiting16 & ad_num_adopted16 and ad_num_waiting16 & ad_num_served16 and ad_num_adopted16 & ad_num_served16 
+ellipse::pairs(Abortion ~ FPNeedMet16 + FPServed16 + FPU20Served16 + FPCenters15 + FPExpend15, 
+             data = data, lower.panel = NULL) # FPServed16 & FPU20Served16 + FPServed16&FPCenters15 + FPServed16&FPExpend15
+                                              # FPU20Served16&FPCenters15 + FPU20Served16&FPExpend15 + FPCenters15&FPExpend15
+ellipse::pairs(Abortion ~ Childcare1213 + PaidLeave14 + ADWaiting16 + ADAdopted16 + ADServed16 + ADPropAdopted16, 
+               data = data, lower.panel = NULL) # ADWaiting16&ADAdopted16 + ADWaiting16&ADServed16 + ADAdopted16&ADServed16
+ellipse::pairs(Abortion ~ ADPropTerm16 + ParentalLeave + PropUninsured16 + MaternalDeaths1216 + ADWaiting16 + ADAdopted16, 
+               data = data, lower.panel = NULL) 
+ellipse::pairs(Abortion ~ FPNeedMet16 + FPServed16 + PaidLeave14 + ADWaiting16 + ADPropAdopted16 + MaternalDeaths1216, 
+               data = data, lower.panel = NULL)
 
-full <- multinom(as.factor(abortion_status) ~ fp_perc_need_met16 + fp_num_served16 + fp_num_u20_served16 + fp_num_centers15 
-            + fp_total_expend15 + ad_num_waiting16 + ad_num_adopted16+ad_num_served16+
-              ad_prop_adopted16+parental_leave_score+prop_uninsured16 + fp_num_served16*fp_num_u20_served16 + 
-              fp_num_centers15*fp_total_expend15 + ad_num_waiting16*ad_num_adopted16 + ad_num_waiting16*ad_num_served16
-            + ad_num_adopted16*ad_num_served16, data = data)
 
-kable(tidy(full), 
-      format = "markdown", digits = 3, caption = "Full Model")
+full <- multinom(Abortion ~ FPNeedMet16+FPServed16+FPU20Served16+FPCenters15+FPExpend15+
+Childcare1213+PaidLeave14+ADWaiting16+ADAdopted16+ADServed16+ADPropAdopted16+ADPropTerm16+ParentalLeave+PropUninsured16+
+  MaternalDeaths1216 + FPServed16*FPU20Served16 + FPServed16*FPCenters15 + FPServed16*FPExpend15 + 
+  FPU20Served16*FPCenters15 + FPU20Served16*FPExpend15 + FPCenters15*FPExpend15 + ADWaiting16*ADAdopted16 + 
+  ADWaiting16*ADServed16 + ADAdopted16*ADServed16, data = na.omit(data))
+
+kable(tidy(full), format = "markdown", digits = 3, caption = "Full Model")
 kable(confint(full), format = "markdown", digits = 3, caption = "Full Model Confidence Intervals")
 
 regfit_backward <- step(full, direction = "backward")
 
 
-best_model <- multinom(as.factor(abortion_status) ~ ad_num_waiting16*ad_num_adopted16 + ad_num_adopted16*ad_num_served16 + 
-                         ad_num_waiting16:ad_num_served16 + prop_uninsured16 + ad_prop_adopted16 + fp_num_served16*fp_num_u20_served16
-                       + fp_total_expend15 + parental_leave_score + fp_perc_need_met16, data = data)
+best_model <- multinom(Abortion ~ FPServed16*FPExpend15+MaternalDeaths1216+ADPropTerm16+ParentalLeave+ADAdopted16*ADServed16
+                       +Childcare1213+FPNeedMet16+ADWaiting16*ADServed16+ADPropAdopted16+FPU20Served16*FPCenters15+
+                         FPServed16*FPCenters15+FPU20Served16*FPExpend15+ADWaiting16*ADAdopted16+FPCenters15*FPExpend15
+                       +FPServed16*FPU20Served16+PaidLeave14, data = data)
 
 kable(tidy(best_model), 
       format = "markdown", digits = 3, caption = "Best Model") 
@@ -38,7 +42,7 @@ kable(confint(best_model), format = "markdown", digits = 3, caption = "Best Mode
 
 # prediction of model
 pred <- predict(best_model, type = "class")
-table <- table(data$abortion_status, pred)
+table <- table(na.omit(data)$Abortion, pred)
 confusion_matrix <- as.data.frame(table)
 
 ggplot(data = confusion_matrix,
