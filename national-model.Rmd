@@ -21,6 +21,14 @@ data <- data %>%
   mutate(Abortion = as.factor(Abortion))
 ```
 
+```{r }
+data <- data %>%
+  mutate(MaternalDeaths1216 = case_when(
+    !is.na(MaternalDeaths1216) ~ MaternalDeaths1216,
+    is.na(MaternalDeaths1216) ~ mean(!is.na(data$MaternalDeaths1216))
+  ))
+```
+
 ```{r pairwise}
 ellipse::pairs(Abortion ~ FPNeedMet16 + FPServed16 + FPU20Served16 + FPCenters15 + FPExpend15, 
              data = data, lower.panel = NULL) # FPServed16 & FPU20Served16 + FPServed16&FPCenters15 + FPServed16&FPExpend15
@@ -64,7 +72,7 @@ $$
 full <- multinom(Abortion ~ FPNeedMet16+FPServed16+FPU20Served16+FPCenters15+FPExpend15+
 Childcare1213+PaidLeave14+ADWaiting16+ADAdopted16+ADServed16+ADPropAdopted16+ADPropTerm16+ParentalLeave+PropUninsured16+ MaternalDeaths1216 + FPServed16*FPU20Served16 + FPServed16*FPCenters15 + FPServed16*FPExpend15 + 
   FPU20Served16*FPCenters15 + FPU20Served16*FPExpend15 + FPCenters15*FPExpend15 + ADWaiting16*ADAdopted16 + 
-  ADWaiting16*ADServed16 + ADAdopted16*ADServed16, data = na.omit(data))
+  ADWaiting16*ADServed16 + ADAdopted16*ADServed16, data = data)
 
 kable(tidy(full), format = "markdown", digits = 3, caption = "Full Model")
 kable(confint(full), format = "markdown", digits = 3, caption = "Full Model Confidence Intervals")
