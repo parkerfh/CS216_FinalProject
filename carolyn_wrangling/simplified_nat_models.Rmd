@@ -1,0 +1,94 @@
+---
+title: "simplified_nat_models"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r warning = FALSE, message = FALSE}
+library(tidyverse)
+library(knitr)
+library(broom)
+library(nnet)
+```
+
+```{r warning = F, message=FALSE}
+states <- read_csv("../data/all_national_data_merged.csv")
+```
+
+```{r }
+states <- states %>%
+  mutate(MaternalDeaths1216 = case_when(
+    !is.na(MaternalDeaths1216) ~ MaternalDeaths1216,
+    is.na(MaternalDeaths1216) ~ mean(!is.na(states$MaternalDeaths1216))
+  ))
+```
+
+```{r}
+states <- states %>% 
+  mutate(Status = case_when(
+    Abortion == "significantly restricted" ~ 0,
+    Abortion == "neither" ~ 1,
+    Abortion == "protected" ~ 2
+  ),
+  Status = factor(Status),
+  ObsNum = 1:n())
+```
+
+```{r}
+colnames(states)
+```
+
+
+```{r}
+full_model <- multinom(Status ~ FPNeedMet16 + Childcare1213 + PaidLeave14 + 
+                         ADPropAdopted16 + ParentalLeave + PropUninsured16 + 
+                         MaternalDeaths1216,
+                       data = states)
+```
+
+```{r}
+tidy(full_model)
+```
+
+```{r results="hide"}
+selected <- step(full_model)
+```
+
+```{r}
+tidy(selected,
+     conf.int = TRUE)
+```
+
+```{r}
+final_model <- selected
+```
+
+
+```{r}
+pred_probs <- as_tibble(predict(final_model, type = "probs")) %>% 
+  mutate(ObsNum = 1:n())
+```
+
+```{r}
+states_aug <- inner_join(states, pred_probs, by = "ObsNum")
+```
+
+```{r}
+states_aug <- states_aug %>% 
+  mutate(PredStatus = predict(final_model, type = "class"))
+```
+
+```{r}
+states_aug
+```
+
+```{r}
+states_aug %>% 
+  count(Status, PredStatus, .drop = FALSE) %>% 
+  pivot_wider(names_from = PredStatus, values_from = n)
+```
+
+
