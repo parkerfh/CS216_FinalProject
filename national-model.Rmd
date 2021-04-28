@@ -13,6 +13,8 @@ library(tidyverse)
 library(knitr)
 library(broom)
 library(nnet)
+library(rms)
+library(car)
 ```
 
 ```{r data}
@@ -74,3 +76,39 @@ ggplot(data = confusion_matrix,
                       trans = "log")
 ```
 
+
+```{r multicollinearity}
+data2 <- data %>% 
+  mutate(PropUninsured16 = PropUninsured16 - mean(PropUninsured16),
+         MaternalDeaths1216 = MaternalDeaths1216 - mean(MaternalDeaths1216),
+         ADPropAdopted16 = ADPropAdopted16 - mean(ADPropAdopted16),
+         Childcare1213 = Childcare1213 - mean(Childcare1213))
+
+best_model2 <- multinom(Abortion ~ PropUninsured16 + MaternalDeaths1216+ADPropAdopted16+Childcare1213+ParentalLeave+PaidLeave14, data = data2)
+
+kable(tidy(best_model2), 
+      format = "markdown", digits = 3, caption = "Best Model") 
+
+options(scipen = 50)
+vif(best_model2) %>% 
+  tidy() %>% 
+  kable(digits = 3,
+        caption = "VIF values")
+```
+
+```{r confusion-matrix}
+# prediction of model
+pred <- predict(best_model2, type = "class")
+table <- table(data2$Abortion, pred)
+confusion_matrix <- as.data.frame(table)
+
+ggplot(data = confusion_matrix,
+       mapping = aes(x = Var1,
+                     y = pred)) +
+  geom_tile(aes(fill = Freq)) +
+  geom_text(aes(label = sprintf("%1.0f", Freq)), vjust = 1) +
+  scale_fill_gradient(low = "blue",
+                      high = "red",
+                      trans = "log")
+```
+```
