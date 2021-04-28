@@ -22,7 +22,7 @@ states <- read_csv("../data/all_national_data_merged.csv")
 states <- states %>%
   mutate(MaternalDeaths1216 = case_when(
     !is.na(MaternalDeaths1216) ~ MaternalDeaths1216,
-    is.na(MaternalDeaths1216) ~ mean(!is.na(data$MaternalDeaths1216))
+    is.na(MaternalDeaths1216) ~ mean(!is.na(states$MaternalDeaths1216))
   ))
 ```
 
